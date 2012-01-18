@@ -15,7 +15,7 @@ development:
   database: st_francis_development
   pool: 5
   username: root
-  password:
+  password: 007!Jonny
   host: localhost
 
 # Warning: The database defined as "test" will be erased and

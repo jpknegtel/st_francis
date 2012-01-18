@@ -1,0 +1,20 @@
+<div class =" player list">
+  <h2>Players</h2>
+
+  <table class="list" align="">
+    <tr class="header">
+       <th>id</th>
+       <th>player</th>
+       <th>email</th>
+    </tr>
+    <% @players.each do |player| %>
+    <tr>
+      <td><%=player.id %></td>
+      <td><%=player.first_name + " " + player.last_name %></td>
+      <td><%=player.email %></td>
+
+      <td>  <% link_to("edit",'#', :class=>'action edit') %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
