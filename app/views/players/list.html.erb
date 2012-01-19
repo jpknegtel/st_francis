@@ -1,19 +1,23 @@
 <div class =" player list">
   <h2>Players</h2>
-
+ <%= link_to("Add new player", {:action =>'new'}, :class => 'action new') %>
   <table class="list" align="">
     <tr class="header">
-       <th>id</th>
-       <th>player</th>
-       <th>email</th>
+       <th>ID</th>
+       <th>Player</th>
+       <th>Email</th>
+       <th>Actions</th>
     </tr>
     <% @players.each do |player| %>
     <tr>
       <td><%=player.id %></td>
       <td><%=player.first_name + " " + player.last_name %></td>
       <td><%=player.email %></td>
+      <td>  <%= link_to("Show", {:action =>'show', :id => player.id}, :class=>'action show') %>
+            <%= link_to("Edit",{:action =>'edit', :id => player.id}, :class=>'action edit') %>
+            <%= link_to("Delete",'#', :class=>'action delete') %>
+      </td>
 
-      <td>  <% link_to("edit",'#', :class=>'action edit') %></td>
     </tr>
     <% end %>
   </table>

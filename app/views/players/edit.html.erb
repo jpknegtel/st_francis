@@ -1,0 +1,27 @@
+<%= link_to("<<back to list", {:action =>'list'}, :class => 'back-link') %>
+
+
+<div class="player new">
+  <h2>Update Player</h2>
+
+  <%=form_for(:player, :url => {:action =>'update', :id => @player.id}) do |f| %>
+  <table>
+    <tr>
+      <th>First name</th>
+      <td><%=f.text_field(:first_name) %></td>
+    </tr>
+    <tr>
+      <th>Last name</th>
+      <td><%=f.text_field(:last_name) %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%=f.text_field(:email) %></td>
+    </tr>
+  </table>
+
+  <div>
+    <%= submit_tag("Update player") %>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,25 @@
+<%= link_to("<<back to list", {:action =>'list'}, :class => 'back-link') %>
+
+<div>
+  <h2> Show player</h2>
+
+  <table>
+    <tr>
+      <th>First name</th>
+      <td><%= @player.first_name %></td>
+    </tr>
+    <tr>
+      <th>Last name</th>
+      <td><%= @player.last_name %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= @player.email %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @player.created_at %></td>
+    </tr>
+  </table>
+
+</div>
