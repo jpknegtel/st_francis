@@ -5,3 +5,10 @@
  *= require_self
  *= require_tree . 
 */
+
+#nav{
+    margin-top: 10px;
+    margin-left: 10px;
+    position: relative;
+
+}

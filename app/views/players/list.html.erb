@@ -1,10 +1,15 @@
+<div id=nav>
+  <%= link_to("Teams", {:controller => 'teams',:action =>'list'}, :class => 'view_teams') %>
+  <%= link_to("Players", {:controller => 'players',:action =>'list'}, :class => 'view_players') %>
+</div>
+
 <%if !flash[:notice].blank?%>
     <div class ="notice">
         <%= flash[:notice] %>
     </div>
 <% end %>
 
-<div class =" player list">
+<div class ="player list">
   <h2>Players</h2>
  <%= link_to("Add new player", {:action =>'new'}, :class => 'action new') %>
   <table class="list" align="">
