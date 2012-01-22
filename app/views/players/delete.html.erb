@@ -1,0 +1,16 @@
+<%= link_to("<<back to list", {:action =>'list'}, :class => 'back-link') %>
+
+<div class= "subject delete">
+  <h2>Delete subject</h2>
+
+  <%=form_for(:player, :url => {:action => 'destroy', :id => @player.id}) do |f| %>
+    <p>Are you sure want to permanently delete this player?</p>
+    <h3> Once you have done this they can never be brought back and will cease to exsit in the digital world? </h3>
+    <p class="reference name"><%= @player.first_name + @player.last_name %></p>
+      <div class= "form-buttons">
+        <%= submit_tag("Delete player") %>
+      </div>
+  <% end %>
+
+
+</div>

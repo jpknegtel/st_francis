@@ -1,0 +1,28 @@
+<%if !flash[:notice].blank?%>
+    <div class ="notice">
+        <%= flash[:notice] %>
+    </div>
+<% end %>
+
+<div class ="team list">
+  <h2>Teams</h2>
+ <%= link_to("Add new team", {:action =>'new'}, :class => 'action new') %>
+  <table class="list" align="">
+    <tr class="header">
+       <th>ID</th>
+       <th>Team</th>
+       <th>Actions</th>
+    </tr>
+    <% @team.each do |team| %>
+    <tr>
+      <td><%=team.id %></td>
+      <td><%=team.name %></td>
+      <td>  <%= link_to("Show", {:action =>'show', :id => team.id}, :class=>'action show') %>
+            <%= link_to("Edit",{:action =>'edit', :id => team.id}, :class=>'action edit') %>
+            <%= link_to("Delete",{:action =>'delete', :id => team.id}, :class=>'action delete') %>
+      </td>
+
+    </tr>
+    <% end %>
+  </table>
+</div>

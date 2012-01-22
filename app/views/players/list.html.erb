@@ -1,3 +1,9 @@
+<%if !flash[:notice].blank?%>
+    <div class ="notice">
+        <%= flash[:notice] %>
+    </div>
+<% end %>
+
 <div class =" player list">
   <h2>Players</h2>
  <%= link_to("Add new player", {:action =>'new'}, :class => 'action new') %>
@@ -15,7 +21,7 @@
       <td><%=player.email %></td>
       <td>  <%= link_to("Show", {:action =>'show', :id => player.id}, :class=>'action show') %>
             <%= link_to("Edit",{:action =>'edit', :id => player.id}, :class=>'action edit') %>
-            <%= link_to("Delete",'#', :class=>'action delete') %>
+            <%= link_to("Delete",{:action =>'delete', :id => player.id}, :class=>'action delete') %>
       </td>
 
     </tr>

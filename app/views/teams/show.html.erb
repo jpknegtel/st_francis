@@ -1,0 +1,17 @@
+
+<div>
+  <%= link_to("<<back to list", {:action =>'list'}, :class => 'back-link') %>
+  <h2> Show team</h2>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <td><%= @team.name %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @team.created_at %></td>
+    </tr>
+  </table>
+
+</div>
