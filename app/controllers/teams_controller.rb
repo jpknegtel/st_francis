@@ -22,5 +22,29 @@ class TeamsController < ApplicationController
     end
   end
 
+  def edit
+    @team = Team.find(params[:id])
+  end
+
+  def update
+     @team = Team.find(params[:id])
+    if @team.update_attributes(params[:player])
+      flash[:notice] = "Team  updated"
+      redirect_to(:action =>'show', :id => @team.id)
+    else
+      render('edit')
+    end
+  end
+
+  def delete
+    @team = Team.find(params[:id])
+  end
+
+  def destroy
+    @team = Team.destroy(params[:id])
+    flash[:notice] = "Team deleted"
+    redirect_to(:action =>'list')
+  end
+
 
 end

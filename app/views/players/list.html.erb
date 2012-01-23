@@ -18,12 +18,14 @@
        <th>Player</th>
        <th>Email</th>
        <th>Actions</th>
+       <th>Team</th>
     </tr>
     <% @players.each do |player| %>
     <tr>
       <td><%=player.id %></td>
       <td><%=player.first_name + " " + player.last_name %></td>
       <td><%=player.email %></td>
+
       <td>  <%= link_to("Show", {:action =>'show', :id => player.id}, :class=>'action show') %>
             <%= link_to("Edit",{:action =>'edit', :id => player.id}, :class=>'action edit') %>
             <%= link_to("Delete",{:action =>'delete', :id => player.id}, :class=>'action delete') %>

@@ -13,6 +13,7 @@ class PlayersController < ApplicationController
   end
 
   def create
+    @team = Team.all(params[:id])
     @player = Player.new(params[:player])
     if @player.save
       flash[:notice] = "Player Created"

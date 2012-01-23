@@ -5,6 +5,7 @@ class CreatePlayers < ActiveRecord::Migration
       t.string "last_name"
       t.string "email"
 
+
       t.timestamps
     end
   end
