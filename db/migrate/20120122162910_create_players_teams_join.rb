@@ -8,7 +8,8 @@ class CreatePlayersTeamsJoin < ActiveRecord::Migration
   end
 
   def down
-    drop table :players_teams
+    drop_table :players_teams
+
 
   end
 end
