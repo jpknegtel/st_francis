@@ -1,0 +1,19 @@
+<%= link_to("<<back to list", {:action =>'list'}, :class => 'back-link') %>
+
+
+<div class="team update">
+  <h2>Update team</h2>
+
+  <%=form_for(:fixture, :url => {:action =>'update', :id => @fixture.id}) do |f| %>
+  <table>
+    <tr>
+      <th>First name</th>
+      <td><%=f.text_field(:name) %></td>
+    </tr>
+    </table>
+
+  <div>
+    <%= submit_tag("Update team") %>
+  </div>
+  <% end %>
+</div>

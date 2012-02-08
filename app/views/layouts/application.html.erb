@@ -7,8 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id=wrapper>
+<div id=header>
+<div id=title>
+    <h1>H.T.S.M</h1>
+</div><!--end title-->
 
+<div id=nav>
+  <%= link_to("Teams", {:controller => 'teams',:action =>'list'}, :class => 'view_teams') %>
+  <%= link_to("Players", {:controller => 'players',:action =>'list'}, :class => 'view_players') %>
+</div><!--end nav-->
+</div><!--end header-->
 <%= yield %>
-
+</div><!--end wrapper-->
 </body>
 </html>

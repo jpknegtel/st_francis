@@ -4,6 +4,7 @@ class CreateFixtures < ActiveRecord::Migration
       t.string "opposition"
       t.integer "team_id"
       t.integer "venue_id"
+      t.date "date"
       t.timestamps
     end
   end
