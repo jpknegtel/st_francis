@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20120201155940) do
     t.string   "opposition"
     t.integer  "team_id"
     t.integer  "venue_id"
+    t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20120201155940) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
+    t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
