@@ -2,6 +2,7 @@ class PlayersController < ApplicationController
 
   def list
     @players = Player.all
+
   end
 
   def show
@@ -13,8 +14,9 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @team = Team.all(params[:id])
+
     @player = Player.new(params[:player])
+
     if @player.save
       flash[:notice] = "Player Created"
       redirect_to(:action =>'list')
@@ -30,6 +32,7 @@ class PlayersController < ApplicationController
 
   def update
      @player = Player.find(params[:id])
+
     if @player.update_attributes(params[:player])
       flash[:notice] = "Player updated"
       redirect_to(:action =>'show', :id => @player.id)

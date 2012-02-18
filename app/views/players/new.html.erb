@@ -18,12 +18,31 @@
       <th>Email</th>
       <td><%=f.text_field(:email) %></td>
     </tr>
+    <tr>
+      <th>Team</th>
+      <td><%= f.select(:team_id, (Team.all.map! &:name)) %></td>
+
+    </tr>
 
 
   </table>
+
 
   <div>
     <%= submit_tag("create player") %>
   </div>
   <% end %>
+
+ <%= semantic_form_for(:player,:url=>{:action =>'create'}) do |f| %>
+    <%= f.inputs do %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :team_id, :as=> :select, :collection => @teams  %>
+
+      <%= f.input :email %>
+     <%= f.buttons %>
+
+    <% end %>
+  <% end %>
+
 </div>

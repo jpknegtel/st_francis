@@ -20,12 +20,18 @@
       <td><%=player.id %></td>
       <td><%=player.first_name + " " + player.last_name %></td>
       <td><%=player.email %></td>
+      <td>
+      <% player.teams.each do |team| %>
+        <%=team.name %>
+      <%end%>
+      </td>
+
+
 
       <td>  <%= link_to("Show", {:action =>'show', :id => player.id}, :class=>'action show') %>
             <%= link_to("Edit",{:action =>'edit', :id => player.id}, :class=>'action edit') %>
             <%= link_to("Delete",{:action =>'delete', :id => player.id}, :class=>'action delete') %>
       </td>
-
     </tr>
     <% end %>
   </table>
