@@ -17,11 +17,12 @@ class PlayersController < ApplicationController
 
     @player = Player.new(params[:player])
 
+
+
     if @player.save
       flash[:notice] = "Player Created"
       redirect_to(:action =>'list')
     else
-
       render('new')
     end
   end
@@ -46,7 +47,8 @@ class PlayersController < ApplicationController
   end
 
   def destroy
-    @player = Player.destroy(params[:id])
+    @player = Player.find(params[:id])
+    @player.destroy
     flash[:notice] = "Player deleted"
     redirect_to(:action =>'list')
   end

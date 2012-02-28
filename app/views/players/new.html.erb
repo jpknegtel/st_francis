@@ -20,8 +20,8 @@
     </tr>
     <tr>
       <th>Team</th>
-      <td><%= f.select(:team_id, (Team.all.map! &:name)) %></td>
-
+      <td><%#=select(:player,:team, Team.all.collect {|f| [f.name]})%></td>
+          <%= collection_select :player, :team_id, Team.find(:all, :order => 'name ASC'), :id, :name, { :selected => @player.teams_id }, { :multiple => true, :name => 'player[team_id][]' } -%>
     </tr>
 
 
@@ -32,17 +32,4 @@
     <%= submit_tag("create player") %>
   </div>
   <% end %>
-
- <%= semantic_form_for(:player,:url=>{:action =>'create'}) do |f| %>
-    <%= f.inputs do %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :team_id, :as=> :select, :collection => @teams  %>
-
-      <%= f.input :email %>
-     <%= f.buttons %>
-
-    <% end %>
-  <% end %>
-
 </div>

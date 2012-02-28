@@ -13,7 +13,7 @@ class FixturesController < ApplicationController
   end
 
   def create
-    @fixtures = fixture.all(params[:id])
+
     @fixtures = Fixture.new(params[:fixture])
     if @fixtures.save
       flash[:notice] = "Fixture Created"

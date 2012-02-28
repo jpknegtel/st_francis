@@ -1,25 +1,29 @@
-<%if !flash[:notice].blank?%>
-    <div class ="notice">
-        <%= flash[:notice] %>
-    </div>
-<% end %>
-
-<div class ="team list">
-  <h2>Teams</h2>
- <%= link_to("Add new team", {:action =>'new'}, :class => 'action new') %>
+<div class ="fixture list">
+  <h2>Fixtures</h2>
+ <%= link_to("Add new fixture", {:action =>'new'}, :class => 'action new') %>
   <table class="list" align="">
     <tr class="header">
        <th>ID</th>
+       <th>Opposition</th>
+       <th>Date</th>
        <th>Team</th>
        <th>Actions</th>
     </tr>
-    <% @team.each do |team| %>
+    <% @fixtures.each do |fixture| %>
     <tr>
-      <td><%=team.id %></td>
-      <td><%=team.name %></td>
-      <td>  <%= link_to("Show", {:action =>'show', :id => team.id}, :class=>'action show') %>
-            <%= link_to("Edit",{:action =>'edit', :id => team.id}, :class=>'action edit') %>
-            <%= link_to("Delete",{:action =>'delete', :id => team.id}, :class=>'action delete') %>
+      <td><%=fixture.id %></td>
+      <td><%=fixture.opposition %></td>
+      <td><%=fixture.date %></td>
+      <td>
+        <%= fixture.team_id %>
+        <%# fixture.team_id do |team| %>
+            <%#= team.name %>
+          <%# end %>
+      </td>
+
+      <td>  <%= link_to("Show", {:action =>'show', :id => fixture.id}, :class=>'action show') %>
+            <%= link_to("Edit",{:action =>'edit', :id => fixture.id}, :class=>'action edit') %>
+            <%= link_to("Delete",{:action =>'delete', :id => fixture.id}, :class=>'action delete') %>
       </td>
 
     </tr>

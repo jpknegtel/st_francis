@@ -1,14 +1,15 @@
 <%= link_to("<<back to list", {:action =>'list'}, :class => 'back-link') %>
 
-<div class= "Fixture delete">
-  <h2>Delete subject</h2>
+<div class= "fixture delete">
+  <h2>Delete fixture</h2>
 
-  <%=form_for(:fixture, :url => {:action => 'destroy', :id => :fixture.id}) do |f| %>
-    <p>Are you sure want to permanently delete this team?</p>
+  <%=form_for(:fixture, :url => {:action => 'destroy', :id => @fixture}) do |f| %>
 
-    <p class="reference name"><%= @fixture.name%></p>
+    <p>Are you sure want to permanently delete this fixture?</p>
+
+
       <div class= "form-buttons">
-        <%= submit_tag("Delete team") %>
+        <%= submit_tag("Delete fixture") %>
       </div>
   <% end %>
 

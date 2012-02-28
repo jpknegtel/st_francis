@@ -7,11 +7,20 @@
   <%=form_for(:fixture, :url => {:action =>'create'}) do |f| %>
   <table>
     <tr>
-      <th>Name</th>
+      <th>Opposition</th>
       <td><%=f.text_field(:opposition) %></td>
     </tr>
     <tr>
-
+      <th>Venue</th>
+    </tr>
+    <tr>
+      <th>Team playing</th>
+      <td><%=select(:fixture, :team_id, Team.all.collect {|f| [f.name]})%></td>
+    </tr>
+    <tr>
+          <th>Date</th>
+          <td><%= f.datetime_select(:date, :start_year => Time.now.year - 1, :end_year =>Time.now.year + 2, :Minute_step => 15, :include_seconds => false )%></td>
+    </tr>
 
   </table>
 
