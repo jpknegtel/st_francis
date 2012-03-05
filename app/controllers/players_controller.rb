@@ -14,11 +14,7 @@ class PlayersController < ApplicationController
   end
 
   def create
-
     @player = Player.new(params[:player])
-
-
-
     if @player.save
       flash[:notice] = "Player Created"
       redirect_to(:action =>'list')
@@ -32,6 +28,7 @@ class PlayersController < ApplicationController
   end
 
   def update
+    params[:player][:team_ids] ||= []
      @player = Player.find(params[:id])
 
     if @player.update_attributes(params[:player])

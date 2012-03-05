@@ -15,7 +15,7 @@
     </tr>
     <tr>
       <th>Team playing</th>
-      <td><%=select(:fixture, :team_id, Team.all.collect {|f| [f.name]})%></td>
+      <td><%=select(:fixture, :teams, Team.all.collect {|f| [f.name]})%></td>
     </tr>
     <tr>
           <th>Date</th>
