@@ -4,7 +4,7 @@
 <div class="fixture new">
   <h2>New Fixture</h2>
 
-  <%=form_for(:fixture, :url => {:action =>'create'}) do |f| %>
+  <%=form_for(@fixtures, :url => {:action =>'create'}) do |f| %>
   <table>
     <tr>
       <th>Opposition</th>
@@ -12,16 +12,27 @@
     </tr>
     <tr>
       <th>Venue</th>
+      <td><%= f.collection_select(:venue_id, Venue.all, :id, :name, :prompt => true) %>
+        </td>
     </tr>
     <tr>
       <th>Team playing</th>
-      <td><%=select(:fixture, :teams, Team.all.collect {|f| [f.name]})%></td>
+      <td><%= f.collection_select(:team_id, Team.all, :id, :name, :prompt => true) %></td>
     </tr>
     <tr>
-          <th>Date</th>
-          <td><%= f.datetime_select(:date, :start_year => Time.now.year - 1, :end_year =>Time.now.year + 2, :Minute_step => 15, :include_seconds => false )%></td>
+      <th>Date</th>
+      <td><%= f.datetime_select(:date, :start_year => Time.now.year - 1, :end_year =>Time.now.year + 2, :Minute_step => 15, :include_seconds => false )%></td>
     </tr>
-
+    <tr>
+      <th>players</th>
+      <td>
+        <ul>
+          <li>fixture[player_ids][]<%= f.collection_select(:player_ids, Player.all, :id, :first_name, :prompt => true) %></li>
+          <li>fixture[player_ids][]<%= f.collection_select(:player_ids, Player.all, :id, :first_name, :prompt => true) %></li>
+          <li>fixture[player_ids][]<%= f.collection_select(:player_ids, Player.all, :id, :first_name, :prompt => true) %></li>
+         </ul>
+       </td>
+    </tr>
   </table>
 
   <div>

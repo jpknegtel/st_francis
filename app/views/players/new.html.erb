@@ -18,9 +18,6 @@
       <th>Email</th>
       <td><%=f.text_field(:email) %></td>
     </tr>
-
-
-
     <tr>
       <th>Team</th>
       <td><%= f.collection_select(:team_ids, Team.all, :id, :name, :prompt => true) %></td>

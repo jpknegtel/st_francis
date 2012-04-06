@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(:version => 20120209202131) do
   end
 
   create_table "player_fixtures", :force => true do |t|
-    t.integer  "player_ID"
-    t.integer  "fixture_ID"
+    t.integer  "player_id"
+    t.integer  "fixture_id"
     t.boolean  "sub_paid"
     t.datetime "created_at"
     t.datetime "updated_at"

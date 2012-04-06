@@ -15,11 +15,12 @@
       <td class="TBL_name"><%=player.first_name + " " + player.last_name %></td>
       <td class="TBL_email"><%=player.email %></td>
       <td class="TBL_team">
-      <% player.teams.each do |team| %>
-        <%=team.name %>
+                <% player.teams.each do |team| %>
+            <%= link_to(team.name, {:controller => 'teams',:action =>'show' , :id => team.id}, :class => 'view_teams') %>
       <%end%>
       </td>
-      <td class="TBL_actions">  <%= link_to("Show", {:action =>'show', :id => player.id}, :class=>'action show') %>
+      <td class="TBL_actions">
+            <%= link_to("Show", {:action =>'show', :id => player.id}, :class=>'action show') %>
             <%= link_to("Edit",{:action =>'edit', :id => player.id}, :class=>'action edit') %>
             <%= link_to("Delete",{:action =>'delete', :id => player.id}, :class=>'action delete') %>
       </td>

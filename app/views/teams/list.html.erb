@@ -12,9 +12,11 @@
     <tr>
       <td><%=team.id %></td>
       <td><%=team.name %></td>
-      <td><% team.players.each do |player| %>
-              <%=player.first_name + ' ' + player.last_name + ',' %>
-        <%end%></td>
+      <td><ul><% team.players.each do |player| %>
+              <li>
+                <%= link_to(player.first_name + ' ' + player.last_name, {:controller => 'players',:action =>'show', :id => player.id}, :class=>'action show') %>
+              </li>
+        <%end%></ul></td>
       <td>  <%= link_to("Show", {:action =>'show', :id => team.id}, :class=>'action show') %>
             <%= link_to("Edit",{:action =>'edit', :id => team.id}, :class=>'action edit') %>
             <%= link_to("Delete",{:action =>'delete', :id => team.id}, :class=>'action delete') %>

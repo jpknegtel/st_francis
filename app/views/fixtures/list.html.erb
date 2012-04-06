@@ -7,6 +7,8 @@
        <th>Opposition</th>
        <th>Date</th>
        <th>Team</th>
+       <th>players</th>
+       <th>Venue</th>
        <th>Actions</th>
     </tr>
     <% @fixtures.each do |fixture| %>
@@ -14,14 +16,16 @@
       <td><%=fixture.id %></td>
       <td><%=fixture.opposition %></td>
       <td><%=fixture.date %></td>
-      <td>
-        <%= fixture.team_id %>
-        <%# fixture.team_id do |team| %>
-            <%#= team.name %>
-          <%# end %>
-      </td>
+      <td><%=fixture.team_id %></td>
+      <td><%=(fixture.players("first_name").map! &:first_name).join(", ")%>
 
-      <td>  <%= link_to("Show", {:action =>'show', :id => fixture.id}, :class=>'action show') %>
+      </td>
+      <td><%=fixture.venue_id %></td>
+
+
+
+      <td>
+            <%= link_to("Show", {:action =>'show', :id => fixture.id}, :class=>'action show') %>
             <%= link_to("Edit",{:action =>'edit', :id => fixture.id}, :class=>'action edit') %>
             <%= link_to("Delete",{:action =>'delete', :id => fixture.id}, :class=>'action delete') %>
       </td>

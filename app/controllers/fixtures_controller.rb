@@ -2,6 +2,9 @@ class FixturesController < ApplicationController
 
   def list
     @fixtures = Fixture.all
+    @players = Player.all
+
+    @teams = Team.all
   end
 
     def show
@@ -10,6 +13,7 @@ class FixturesController < ApplicationController
 
   def new
     @fixtures = Fixture.new
+
   end
 
   def create
@@ -42,7 +46,7 @@ class FixturesController < ApplicationController
   end
 
   def destroy
-    @fixture = Fixture.destroy(params[:id])
+    @fixtures = Fixture.destroy(params[:id])
     flash[:notice] = "Fixture deleted"
     redirect_to(:action =>'list')
   end
