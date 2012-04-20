@@ -16,9 +16,12 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(params[:player])
     if @player.save
+      PlayerMailer.welcome_email(@player).deliver
+
       flash[:notice] = "Player Created"
       redirect_to(:action =>'list')
     else
+      flash[:error] = "Something was wrong. Try again!"
       render('new')
     end
   end

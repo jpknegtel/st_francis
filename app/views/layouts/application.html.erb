@@ -8,16 +8,21 @@
 </head>
 <body>
 <div id=wrapper>
-  <%if !flash[:notice].blank?%>
+  <%if !flash[:notice].blank?%> <!-- allows Flash messages to be passed from previous views -->
       <div id ="notice">
           <%= flash[:notice] %>
-      </div>
+      </div><!-- end notice-->
   <% end %>
+  <% if flash[:error] %>
+        <div id ="notice">
+            <%= flash[:error] %>
+      </div><!--end notice-->
+      <% end %>
     <div id=header>
         <div id=title>
             <h1>H.T.S.M</h1>
         </div><!--end title-->
-
+        <!-- Holds navigation bar, to insert a new controller please add lint_to in here to allow for global use from every page-->
         <div id=nav>
             <%= link_to("Teams", {:controller => 'teams',:action =>'list'}, :class => 'view_teams') %>
             <%= link_to("Players", {:controller => 'players',:action =>'list'}, :class => 'view_players') %>

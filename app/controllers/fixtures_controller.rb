@@ -5,6 +5,7 @@ class FixturesController < ApplicationController
     @players = Player.all
 
     @teams = Team.all
+    @unpaid = player.find(sub_paid=false)
   end
 
     def show
@@ -20,9 +21,12 @@ class FixturesController < ApplicationController
 
     @fixtures = Fixture.new(params[:fixture])
     if @fixtures.save
+      @player = Player.find(params[:player_id])
+      @fixtures.player_fixtures << PlayerFixture.new(:sub_paid => params[:sub_paid], :player => @player)
       flash[:notice] = "Fixture Created"
       redirect_to(:action =>'list')
     else
+      flash.now[:error] = "Could not save fixture. Please re-enter information"
       render('new')
     end
   end
@@ -35,7 +39,7 @@ class FixturesController < ApplicationController
      @fixtures = Fixture.find(params[:id])
     if @fixtures.update_attributes(params[:fixture])
       flash[:notice] = "Fixture updated"
-      redirect_to(:action =>'show', :id => @fixture.id)
+      redirect_to(:action =>'show', :id => @fixtures.id)
     else
       render('edit')
     end

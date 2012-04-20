@@ -4,7 +4,7 @@
 <div class="fixture new">
   <h2>New Fixture</h2>
 
-  <%=form_for(@fixtures, :url => {:action =>'create'}) do |f| %>
+  <%=form_for(@fixtures,  :url => {:action =>'create'}) do |f| %>
   <table>
     <tr>
       <th>Opposition</th>
@@ -25,18 +25,19 @@
     </tr>
     <tr>
       <th>players</th>
-      <td>
-        <ul>
-          <li>fixture[player_ids][]<%= f.collection_select(:player_ids, Player.all, :id, :first_name, :prompt => true) %></li>
-          <li>fixture[player_ids][]<%= f.collection_select(:player_ids, Player.all, :id, :first_name, :prompt => true) %></li>
-          <li>fixture[player_ids][]<%= f.collection_select(:player_ids, Player.all, :id, :first_name, :prompt => true) %></li>
-         </ul>
+      <td> <ul>
+                <li>Player 1<%= f.collection_select(:player_ids, Player.all, :id, :first_name, :prompt => true) %></li>
+               </ul>
+
        </td>
+    </tr>
+    <tr>
+
     </tr>
   </table>
 
   <div>
-    <%= submit_tag("create team") %>
+    <%= submit_tag("create fixture") %>
   </div>
   <% end %>
 </div>
