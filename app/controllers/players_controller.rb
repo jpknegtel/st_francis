@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
 
   def list
-    @players = Player.all
+    @player = Player.all
 
   end
 
