@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20120209202131) do
     t.string   "opposition"
     t.integer  "team_id"
     t.integer  "venue_id"
-    t.date     "date"
+    t.datetime "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,21 +30,26 @@ ActiveRecord::Schema.define(:version => 20120209202131) do
     t.datetime "updated_at"
   end
 
-  create_table "players", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "players_teams", :id => false, :force => true do |t|
+  create_table "player_teams", :id => false, :force => true do |t|
     t.integer "player_id"
     t.integer "team_id"
   end
 
-  add_index "players_teams", ["player_id", "team_id"], :name => "index_players_teams_on_player_id_and_team_id"
+  add_index "player_teams", ["player_id", "team_id"], :name => "index_player_teams_on_player_id_and_team_id"
+
+  create_table "players", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "regression", :force => true do |t|
+    t.string "win",    :limit => 50
+    t.string "warmup", :limit => 50
+    t.string "temp",   :limit => 50
+  end
 
   create_table "subscriptions", :force => true do |t|
     t.string   "sub_type"

@@ -8,21 +8,19 @@ class FixturesController < ApplicationController
     #@unpaid = Player.find(sub_paid=false)
   end
 
-    def show
+  def show
     @fixture = Fixture.find(params[:id])
   end
 
   def new
     @fixture = Fixture.new
-
   end
 
   def create
 
     @fixture = Fixture.new(params[:fixture])
     if @fixture.save
-      @player = Player.find(params[:player_id])
-      @fixture.player_fixtures << PlayerFixture.new(:sub_paid => params[:sub_paid], :player => @player)
+
       flash[:notice] = "Fixture Created"
       redirect_to(:action =>'list')
     else

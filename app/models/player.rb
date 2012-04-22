@@ -1,6 +1,9 @@
-class Player < ActiveRecord::Base
+ class Player < ActiveRecord::Base
 
-  has_and_belongs_to_many :teams
+  # Same thing has has_and_belongs_to_many
+  has_many :player_teams
+  has_many :teams, :through => :player_teams
+  
   has_many :player_fixtures
   has_many :fixtures, :through => :player_fixtures
 
@@ -10,4 +13,7 @@ class Player < ActiveRecord::Base
   validates :last_name, :presence => true, :length =>{:maximum =>25}
   validates :email, :presence => true, :length =>{:maximum =>100}, :format => email_regex
 
+   def full_name
+     "#{first_name} #{last_name}"
+   end
 end

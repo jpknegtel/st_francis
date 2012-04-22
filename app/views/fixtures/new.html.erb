@@ -1,43 +1,14 @@
 <%= link_to("<<back to list", {:action =>'list'}, :class => 'back-link') %>
-
-
-<div class="fixture new">
-  <h2>New Fixture</h2>
-
-  <%=form_for(@fixture,  :url => {:action =>'create'}) do |f| %>
-  <table>
-    <tr>
-      <th>Opposition</th>
-      <td><%=f.text_field(:opposition) %></td>
-    </tr>
-    <tr>
-      <th>Venue</th>
-      <td><%= f.collection_select(:venue_id, Venue.all, :id, :name, :prompt => true) %>
-        </td>
-    </tr>
-    <tr>
-      <th>Team playing</th>
-      <td><%= f.collection_select(:team_id, Team.all, :id, :name, :prompt => true) %></td>
-    </tr>
-    <tr>
-      <th>Date</th>
-      <td><%= f.datetime_select(:date, :start_year => Time.now.year - 1, :end_year =>Time.now.year + 2, :Minute_step => 15, :include_seconds => false )%></td>
-    </tr>
-    <tr>
-      <th>players</th>
-      <td> <ul>
-                <li>Player 1<%= f.collection_select(:player_ids, Player.all, :id, :first_name, :prompt => true) %></li>
-               </ul>
-
-       </td>
-    </tr>
-    <tr>
-
-    </tr>
-  </table>
-
-  <div>
-    <%= submit_tag("create fixture") %>
-  </div>
+<%= semantic_form_for :fixture do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :opposition  %>
+    <%= f.input :team, :as => :select, :collection => Team.all %>
+    <%= f.input :venue, :as => :check_boxes, :collection => Hash[Venue.all.map{|b| [b.name, b.id]}]%>
+    <%= f.input :players, :as => :check_boxes, :collection => Hash[Player.all.map{|b| [b.full_name, b.id]}], :required => true  %>
   <% end %>
-</div>
+  <%= f.actions do %>
+    <%=  f.action :submit, :as => :button %>
+    <%=  f.action :cancel, :as => :link %>
+  <% end %>
+<% end %>
+

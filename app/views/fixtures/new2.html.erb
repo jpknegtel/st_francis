@@ -1,0 +1,16 @@
+<%= link_to("<<back to list", {:action =>'list'}, :class => 'back-link') %>
+
+
+
+  <%= semantic_form_for @fixture, :html => {:multipart => true} do |f| %>
+    <%= f.inputs do %>
+      <%= f.input :opposition  %>
+
+      <%= f.input :team, :as => :select, :collection => Team.all %>
+      <%= f.input :venue, :as => :radio, :collection => Venue.all%>
+      <%= f.input :players, :as => :check_boxes, :collection => Player.all, :required => false  %>
+    <% end %>
+    <%= f.actions do %>
+      <%=  f.action :submit, :as => :button %>
+    <% end %>
+  <% end %>

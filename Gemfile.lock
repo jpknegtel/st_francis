@@ -42,8 +42,8 @@ GEM
     erubis (2.7.0)
     execjs (1.2.13)
       multi_json (~> 1.0)
-    formtastic (2.0.2)
-      rails (~> 3.0)
+    formtastic (2.1.0)
+      actionpack (~> 3.0)
     hike (1.2.1)
     i18n (0.6.0)
     jquery-rails (1.0.19)
@@ -112,7 +112,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.1)
-  formtastic
+  formtastic (= 2.1.0)
   jquery-rails
   mysql2
   rails (= 3.1.3)
