@@ -6,7 +6,8 @@
 
        <th>Player</th>
        <th>Email</th>
-
+       <th>Phone no</th>
+       <th>Sub type</th>
        <th>Teams played for</th>
       <th>Actions</th>
     </tr>
@@ -14,6 +15,8 @@
     <tr>
       <td class="TBL_name"><%=player.first_name + " " + player.last_name %></td>
       <td class="TBL_email"><%=player.email %></td>
+      <td class="TBL_phone"><%=player.phone_no %></td>
+      <td class="TBL_phone"><%=player.subscription_id %>        </td>
       <td class="TBL_team">
                 <% player.teams.each do |team| %>
             <%= link_to(team.name, {:controller => 'teams',:action =>'show' , :id => team.id}, :class => 'view_teams') %>

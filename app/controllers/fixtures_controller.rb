@@ -3,6 +3,7 @@ class FixturesController < ApplicationController
   def list
     @fixture = Fixture.all
     @player = Player.all
+    @venue = Venue.all
 
     @teams = Team.all
     #@unpaid = Player.find(sub_paid=false)
@@ -20,7 +21,6 @@ class FixturesController < ApplicationController
 
     @fixture = Fixture.new(params[:fixture])
     if @fixture.save
-
       flash[:notice] = "Fixture Created"
       redirect_to(:action =>'list')
     else

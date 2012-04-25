@@ -1,0 +1,22 @@
+<div class ="team list">
+  <h2>Teams</h2>
+ <%= link_to("Add new subscription", {:action =>'new'}, :class => 'action new') %>
+  <table class="list" align="">
+    <tr class="header">
+       <th>ID</th>
+       <th>Sub_type</th>
+       <th>actions</th>
+    </tr>
+    <% @subscription.each do |subscription| %>
+    <tr>
+      <td><%=subscription.id %></td>
+      <td><%=subscription.sub_type %></td>
+      <td>  <%= link_to("Show", {:action =>'show', :id => subscription.id}, :class=>'action show') %>
+            <%= link_to("Edit",{:action =>'edit', :id => subscription.id}, :class=>'action edit') %>
+            <%= link_to("Delete",{:action =>'delete', :id => subscription.id}, :class=>'action delete') %>
+      </td>
+
+    </tr>
+    <% end %>
+  </table>
+</div>

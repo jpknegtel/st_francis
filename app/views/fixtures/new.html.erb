@@ -1,14 +1,15 @@
 <%= link_to("<<back to list", {:action =>'list'}, :class => 'back-link') %>
 <%= semantic_form_for :fixture do |f| %>
   <%= f.inputs do %>
+    <%= f.error_messages %>
     <%= f.input :opposition  %>
-    <%= f.input :team, :as => :select, :collection => Team.all %>
-    <%= f.input :venue, :as => :check_boxes, :collection => Hash[Venue.all.map{|b| [b.name, b.id]}]%>
-    <%= f.input :players, :as => :check_boxes, :collection => Hash[Player.all.map{|b| [b.full_name, b.id]}], :required => true  %>
+    <%= f.input :date, :as => :datetime_select %>
+    <%= f.input :team_id, :as => :select, :collection => Team.all, :required => true %>
+    <%= f.input :venue_id, :as => :check_boxes, :collection => Hash[Venue.all.map{|b| [b.name, b.id]}] , :required => true%>
+    <%= f.input :player_ids, :as => :check_boxes, :collection => Hash[Player.all.map{|b| [b.full_name, b.id]}], :required => true  %>
   <% end %>
   <%= f.actions do %>
     <%=  f.action :submit, :as => :button %>
     <%=  f.action :cancel, :as => :link %>
   <% end %>
 <% end %>
-

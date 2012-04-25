@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to St Francis Hockey club, <%= @player.first_name %></h1>
+    <p>
+      You have successfully been entered as a player into our system.
+      Your name is <%= @player.first_name + " "  +@player.last_name %><br/>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for playing and have a great day!</p>
+  </body>
+</html>

@@ -5,35 +5,36 @@
   <h2>New Player</h2>
 
   <%=form_for(:player, :url => {:action =>'create'}) do |f| %>
-  <table>
-    <tr>
-      <th>First name</th>
-      <td><%=f.text_field(:first_name) %></td>
-    </tr>
-    <tr>
-      <th>Last name</th>
-      <td><%=f.text_field(:last_name) %></td>
-    </tr>
-    <tr>
-      <th>Email</th>
-      <td><%=f.text_field(:email) %></td>
-    </tr>
-    <tr>
-      <th>Team</th>
-      <td><%= f.collection_select(:team_ids, Team.all, :id, :name, :prompt => true) %></td>
-    </tr>
+    <%= f.error_messages %>
 
-
-
+      <table>
+        <tr>
+          <th>First name</th>
+          <td><%=f.text_field(:first_name) %></td>
+        </tr>
+        <tr>
+          <th>Last name</th>
+          <td><%=f.text_field(:last_name) %></td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td><%=f.text_field(:email) %></td>
+        </tr>
+        <tr>
+          <th>Team</th>
+          <td><%= f.collection_select(:team_ids, Team.all, :id, :name, :prompt => true) %></td>
+        </tr>
+        <tr>
+           <th>Phone number</th>
+           <td><%=f.text_field(:phone_no) %></td>
+        </tr>
+        <tr>
+          <th>sub_type</th>
+          <td><%= f.collection_select(:subscription_id, Subscription.all, :id, :sub_type, :prompt => true) %></td>
+        </tr>
   </table>
-
-
-
-
-
   <div>
     <%= submit_tag("create player") %>
   </div>
-
-      </div>
+</div>
     <% end %>

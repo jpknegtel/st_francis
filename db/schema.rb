@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20120209202131) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
+    t.string   "phone_no"
+    t.integer  "subscription_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

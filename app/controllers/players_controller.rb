@@ -2,8 +2,7 @@ class PlayersController < ApplicationController
 
   def list
     @player = Player.all
-
-  end
+    end
 
   def show
     @player = Player.find(params[:id])

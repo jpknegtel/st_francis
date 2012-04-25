@@ -17,7 +17,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'formtastic', '2.1.0'
+gem 'formtastic', '2.2.0'
+gem 'dynamic_form'
 
 
 # To use ActiveModel has_secure_password

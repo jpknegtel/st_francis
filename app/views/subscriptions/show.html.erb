@@ -1,0 +1,17 @@
+<div>
+  <%= link_to("<<back to list", {:action =>'list'}, :class => 'back-link') %>
+
+  <h2> Show subscription</h2>
+
+  <table>
+    <tr>
+      <th>sub type</th>
+      <td><%= @subscription.sub_type %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @subscription.created_at %></td>
+    </tr>
+  </table>
+
+</div>
