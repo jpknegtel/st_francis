@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Missed sub_payment, <%= @player.first_name %></h1>
+    <p>
+      You have missed a payment, the game was against <%= @fixture.oppisition %>
+      and on the following date <%= @fixture.date %>
+
+      Your name is <%= @player.first_name + " "  +@player.last_name %>
+
+      Please get in contact with your captain asap to pay outstanding sub<br/>
+    </p>
+    <p>
+      If you think this is an incorrect email please speak to the treasurer of the club
+    </p>
+    <p>Thanks for playing and have a great day!</p>
+  </body>
+</html>

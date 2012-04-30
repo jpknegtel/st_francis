@@ -1,22 +1,24 @@
 <div class ="team list">
   <h2>Teams</h2>
+  <!-- link to add a new team -->
  <%= link_to("Add new team", {:action =>'new'}, :class => 'action new') %>
   <table class="list" align="">
-    <tr class="header">
+    <tr class="header"><!-- table containing data -->
        <th>ID</th>
        <th>Team</th>
        <th>Players Played</th>
        <th>Actions</th>
     </tr>
-    <% @team.each do |team| %>
+    <% @team.each do |team| %> <!--loop to go thought teams that are stored in the database -->
     <tr>
       <td><%=team.id %></td>
       <td><%=team.name %></td>
-      <td><ul><% team.players.each do |player| %>
+      <td><ul><% team.players.each do |player| %> <!-- loop to list all the players are in said tem -->
               <li>
-                <%= link_to(player.first_name + ' ' + player.last_name, {:controller => 'players',:action =>'show', :id => player.id}, :class=>'action show') %>
+                <%= link_to(player.full_name, {:controller => 'players',:action =>'show', :id => player.id}, :class=>'action show') %>
               </li>
         <%end%></ul></td>
+      <!-- links to options that the user can take on the team -->
       <td>  <%= link_to("Show", {:action =>'show', :id => team.id}, :class=>'action show') %>
             <%= link_to("Edit",{:action =>'edit', :id => team.id}, :class=>'action edit') %>
             <%= link_to("Delete",{:action =>'delete', :id => team.id}, :class=>'action delete') %>

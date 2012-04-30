@@ -17,6 +17,8 @@ class PlayersController < ApplicationController
     if @player.save
       PlayerMailer.welcome_email(@player).deliver
 
+
+
       flash[:notice] = "Player Created"
       redirect_to(:action =>'list')
     else
